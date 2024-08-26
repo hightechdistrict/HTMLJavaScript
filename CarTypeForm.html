@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .mainform {
+            background-color: blue;
+            border: 1px solid black;
+            box-shadow: .25em .25em .5em .5em rgba(0, 0, 0, 0.3);
+            position: relative;
+            text-align: center;
+            width: 60%;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 15px;
+        }
+
+        button {
+            padding: 5px;
+            background-color: green;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript">
+        function getPrice() {
+            // Get the value from the input field
+            const carType = document.getElementById('carTypeInput').value.trim();
+            let result = "";
+
+            // Determine the price based on the car type
+            if (carType === "Toyota") {
+                result = "Toyota price starting from 200,000";
+            } else if (carType === "Ferrari") {
+                result = "Ferrari price starting from 400,000";
+            } else {
+                result = "Sorry, we can only provide prices for Toyota or Ferrari. Thanks.";
+            }
+
+            // Display the result in the paragraph
+            document.getElementById('resultParagraph').textContent = result;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="mainform">
+        <h1> Get a Price of Car Type</h1>
+        <p> Please enter type of car in the input field below and click "Get Price" button to get a price.</p>
+        <form onsubmit="event.preventDefault(); getPrice();">
+            <input id="carTypeInput" required maxlength="20" />
+            <button type="submit">Get Price</button>
+        </form>
+        <p id="resultParagraph"></p>
+    </div>
+</body>
+
+</html>
